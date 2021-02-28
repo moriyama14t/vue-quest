@@ -14,7 +14,7 @@
         <v-text-field
           label="YouTube動画ID"
           v-model="movieUrl"
-          :error-messages="movieErrorMessages"
+          :rules="movieErrorMessages"
           placeholder="動画URLの【v= 】の後に続く英数字"
           style="width: 300px"
         />
@@ -32,7 +32,7 @@
             type="button"
             x-large
         >
-          CLICK!
+          <p style="color:white">CLICK!</p>
         </v-btn>
       </v-form>
     </v-container>
@@ -47,7 +47,7 @@
       formRounded: {
         type: String,
         required: false,
-        default: 'sm',//親 親から値が渡ってこなかった場合ののデフォルト指定
+        default: 'sm',
       },
       formElevation: {
         type: String,
@@ -59,48 +59,27 @@
     data () {
       return {
         movieUrl: "",
-        movieErrorMessages: [],
+        movieErrorMessages: [
+          value => !!value || '入力してください',
+          value => value.length == 11 || '11文字で入力してください',
+          value => (/^[a-zA-Z0-9!-/:-@¥[-`{-~]+$/.test(value)) || '半角英数記号で入力してください'
+        ],
         comment: "",
         commentRules: [
           value => !!value || '入力してください',
-          value => value.length <= 16 || '16文字以内で入力してください'
+          value => value.length <= 16 || '16文字以内で入力してください',
         ],
       }
     },
 
-    watch: {
-      movieUrl: function (value) {
-        this.validateMovieUrl(value)
-      }
-    },
-
+    //バリデーションウオッチャからVuetifyを利用して統一化
     methods: {
       formClick () {
         // バリデーションを強制実行
-        this.validateMovieUrl(this.movieUrl)
-        const validateComment = this.$refs.form.validate()
+        const validation = this.$refs.form.validate()
         // フォームにエラーがなければ、動画保存処理を実行
-        if (this.movieErrorMessages.length === 0 && validateComment) {
+        if (validation) {
           this.$emit('storeMovie', this.movieUrl, this.comment)
-        }
-      },
-
-      validateMovieUrl (value) {
-        const stringValidation = /^[a-zA-Z0-9!-/:-@¥[-`{-~]+$/.test(value)
-        if (!value) {
-          this.movieErrorMessages = [
-            '入力してください',
-          ]
-        } else if (value.length !== 11) { 
-          this.movieErrorMessages = [
-            '11文字で入力してください',
-          ]
-        } else if (!stringValidation) { 
-          this.movieErrorMessages = [
-            '半角英数記号で入力してください',
-          ]
-        } else {
-          this.movieErrorMessages = []
         }
       },
     },

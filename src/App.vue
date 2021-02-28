@@ -1,19 +1,17 @@
 <template>
     <v-app>
         <v-toolbar
-          dark
-          src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+          color="blue"
           max-height="60"
         >
-          <v-toolbar-title>YouTube Curation</v-toolbar-title>
+          <v-toolbar-title style="color:white" >YouTube Curation</v-toolbar-title>
         </v-toolbar>
         <top />
         <v-toolbar
-          dark
           src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
         >
           <v-spacer />
-          <p>@QuestAcademia</p>
+          <p style="color:white">@QuestAcademia</p>
         </v-toolbar>
     </v-app>
 </template>
@@ -28,3 +26,5 @@ export default {
       },
   }
 </script>
+
+

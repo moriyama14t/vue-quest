@@ -1,9 +1,9 @@
 
 # vue-quest[課題制作]
 
-[YouTube Curation](https://angry-williams-6e34f7.netlify.app/)
+[YouTubeCuration](https://moriyama-youtube-curation-task.netlify.app/)
 
-JavaScript,Vue.jsを用いたYouTubeキュレーションサイト（まとめサイト）の実装
+Vue.jsを用いたYouTubeキュレーションサイト（まとめサイト）の実装
 
 ## 機能一覧
 *  YouTube動画登録機能
@@ -13,12 +13,11 @@ JavaScript,Vue.jsを用いたYouTubeキュレーションサイト（まとめ�
 
 ## 技術一覧
 *  フレームワーク：Vue.js v2.6.12 
-*  heroku(https://angry-williams-6e34f7.netlify.app/) 
+*  Netlify(https://moriyama-youtube-curation-task.netlify.app/) 
 
 
- 
 ## 工夫した点
-*  ユーザー情報編集・削除追加
+*  バリデーションを統一化（URLのバリデーションをウオッチャ→Vuetify）
 
-
-
+## 参考サイト
+* [YunoCode](https://yu-nocode.com/wp/vue-quest-1/)
