@@ -1,5 +1,5 @@
 
-# vue-quest[課題制作]
+# vue-quest
 
 [YouTubeCuration](https://moriyama-youtube-curation-task.netlify.app/)
 
@@ -18,6 +18,3 @@ Vue.jsを用いたYouTubeキュレーションサイト（まとめサイト）�
 
 ## 工夫した点
 *  バリデーションを統一化（URLのバリデーションをウオッチャ→Vuetify）
-
-## 参考サイト
-* [YunoCode](https://yu-nocode.com/wp/vue-quest-1/)
